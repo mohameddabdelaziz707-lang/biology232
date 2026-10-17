@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محاكاة درس الطلائعيات وتنوعها - الصف الأول الثانوي</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .draggable {
+            cursor: grab;
+            user-select: none;
+        }
+        .draggable:active {
+            cursor: grabbing;
+        }
+        .dropzone {
+            min-height: 45px;
+            transition: all 0.2s ease;
+        }
+        .dropzone.drag-over {
+            background-color: #e2f8f0;
+            border-color: #10b981;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 font-sans text-slate-800">
+
+    <!-- رأس الصفحة -->
+    <header class="bg-emerald-700 text-white shadow-md py-4 px-6 mb-6">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div>
+                <h1 class="text-2xl font-bold">🧪 نظام محاكاة درس الطلائعيات وتنوعها</h1>
+                <p class="text-emerald-100 text-sm mt-1">صف الأول الثانوي - نشاط السحب والإدراج والتغذية الراجعة</p>
+            </div>
+            <div class="mt-3 md:mt-0 flex gap-3">
+                <button onclick="checkAnswers()" class="bg-amber-500 hover:bg-amber-600 text-white px-5 py-2 rounded-lg font-semibold shadow transition duration-200">
+                    فحص وتصحيح الإجابات 🎯
+                </button>
+                <button onclick="resetApp()" class="bg-rose-600 hover:bg-rose-700 text-white px-5 py-2 rounded-lg font-semibold shadow transition duration-200">
+                    إعادة المحاولة 🔄
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 pb-12">
+        
+        <!-- قسم البطاقات السبع -->
+        <section class="mb-10">
+            <h2 class="text-xl font-bold text-emerald-800 mb-4 border-b-2 border-emerald-500 pb-2">
+                أولاً: بطاقات تصنيف وخصائص الطلائعيات والطحالب السبع
+            </h2>
+            <p class="text-sm text-slate-600 mb-4">اسحب البيانات من بنك الكلمات الموحد بالأسفل وضعها في الحقول الفارغة المناسبة لكل بطاقة:</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4" id="cards-container">
+                
+                <!-- بطاقة 1: الدياتومات -->
+                <div class="bg-white p-4 rounded-xl shadow border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-emerald-700 text-center border-b pb-2 mb-3">1. الدياتومات</h3>
+                        <div class="space-y-2 text-sm">
+                            <div><span class="font-semibold text-slate-600">الصبغ:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="كلوروفيل + كاروتين"></div></div>
+                            <div><span class="font-semibold text-slate-600">عدد الخلايا:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="وحيدة الخلية"></div></div>
+                            <div><span class="font-semibold text-slate-600">الجدار الخلوي:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="السيلكا"></div></div>
+                            <div><span class="font-semibold text-slate-600">الغذاء المخزن:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="زيوت"></div></div>
+                            <div><span class="font-semibold text-slate-600">وصف الشكل:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="نصفين غير متساويين ينطبق أحدهما على الآخر ليكون صندوق صغير بغطاء"></div></div>
+                            <div><span class="font-semibold text-slate-600">فوائدها:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="تكون رسوبيات دياتومية – تلميع الفلزات – تبييض الأسنان - مادة حاكة"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- بطاقة 2: السوطيات الدوارة -->
+                <div class="bg-white p-4 rounded-xl shadow border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-emerald-700 text-center border-b pb-2 mb-3">2. السوطيات الدوارة</h3>
+                        <div class="space-y-2 text-sm">
+                            <div><span class="font-semibold text-slate-600">الصبغ:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="بعضها لها صبغة حمراء"></div></div>
+                            <div><span class="font-semibold text-slate-600">عدد الخلايا:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="وحيدة الخلية"></div></div>
+                            <div><span class="font-semibold text-slate-600">نوع التغذية:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="ذاتي وغير ذاتي التغذية"></div></div>
+                            <div><span class="font-semibold text-slate-600">الجدار الخلوي:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="السيليلوز"></div></div>
+                            <div><span class="font-semibold text-slate-600">الشكل والحركة:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="لها سوطان أحدهما عمودي على الآخر تنتج حركة لولبية في الماء"></div></div>
+                            <div><span class="font-semibold text-slate-600">الفوائد:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="علاقات تكافلية مع المرجان والرخويات وقنديل البحر"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- بطاقة 3: اليوجلينات -->
+                <div class="bg-white p-4 rounded-xl shadow border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-emerald-700 text-center border-b pb-2 mb-3">3. اليوجلينات</h3>
+                        <div class="space-y-2 text-sm">
+                            <div><span class="font-semibold text-slate-600">عدد الخلايا:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="وحيدة الخلية"></div></div>
+                            <div><span class="font-semibold text-slate-600">طريقة الحركة:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="الأسواط"></div></div>
+                            <div><span class="font-semibold text-slate-600">نوع التغذية:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="ذاتي وغير ذاتي"></div></div>
+                            <div><span class="font-semibold text-slate-600">الصبغ:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="خضراء"></div></div>
+                            <div><span class="font-semibold text-slate-600">الجدار/الغلاف:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="تحاط بقشيرة"></div></div>
+                            <div><span class="font-semibold text-slate-600">وصف الشكل:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="لها صفات الحيوانات والنباتات معاً"></div></div>
+                            <div><span class="font-semibold text-slate-600">الفجوة المنقبضة:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="طرد الماء خارج الخلية"></div></div>
+                            <div><span class="font-semibold text-slate-600">البقعة العينية:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="تحس بالضوء وتتجه نحوه"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- بطاقة 4: الطحالب البنية -->
+                <div class="bg-white p-4 rounded-xl shadow border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-emerald-700 text-center border-b pb-2 mb-3">4. الطحالب البنية</h3>
+                        <div class="space-y-2 text-sm">
+                            <div><span class="font-semibold text-slate-600">الصبغ:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="فيوكوزانثين"></div></div>
+                            <div><span class="font-semibold text-slate-600">عدد الخلايا:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="عديدة الخلايا"></div></div>
+                            <div><span class="font-semibold text-slate-600">نوع التغذية:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="ذاتي التغذية"></div></div>
+                            <div><span class="font-semibold text-slate-600">مثال:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="عشب البحر"></div></div>
+                            <div><span class="font-semibold text-slate-600">تركيب الجسم:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="أجزاء مسطحة - سويقة - المثبت - المثانة الهوائية"></div></div>
+                            <div><span class="font-semibold text-slate-600">المثانة الهوائية:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="تبقي عشب البحر طافياً بالقرب من الماء"></div></div>
+                            <div><span class="font-semibold text-slate-600">وظيفة المثبت:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="يثبت عشب البحر"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- بطاقة 5: الطحالب الخضراء -->
+                <div class="bg-white p-4 rounded-xl shadow border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-emerald-700 text-center border-b pb-2 mb-3">5. الطحالب الخضراء</h3>
+                        <div class="space-y-2 text-sm">
+                            <div><span class="font-semibold text-slate-600">أنماط النمو:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="مستعمرة"></div></div>
+                            <div><span class="font-semibold text-slate-600">نمط آخر:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="عديدة الخلايا"></div></div>
+                            <div><span class="font-semibold text-slate-600">نمط ثالث:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="وحيدة الخلية"></div></div>
+                            <div><span class="font-semibold text-slate-600">مثال المستعمرة:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="الفولفكس"></div></div>
+                            <div><span class="font-semibold text-slate-600">مثال العديدة:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="السبيروجيرا"></div></div>
+                            <div><span class="font-semibold text-slate-600">مثال الوحيدة:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="الدسميد"></div></div>
+                            <div><span class="font-semibold text-slate-600">الصبغ:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="الكلوروفيل"></div></div>
+                            <div><span class="font-semibold text-slate-600">التغذية:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="ذاتي التغذية"></div></div>
+                            <div><span class="font-semibold text-slate-600">الجدار الخلوي:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="السليلوز"></div></div>
+                            <div><span class="font-semibold text-slate-600">تخزين الغذاء:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="كربوهيدرات"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- بطاقة 6: الطحالب الحمراء -->
+                <div class="bg-white p-4 rounded-xl shadow border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-emerald-700 text-center border-b pb-2 mb-3">6. الطحالب الحمراء</h3>
+                        <div class="space-y-2 text-sm">
+                            <div><span class="font-semibold text-slate-600">التغذية:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="ذاتي التغذية"></div></div>
+                            <div><span class="font-semibold text-slate-600">عدد الخلايا:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="عديد الخلايا"></div></div>
+                            <div><span class="font-semibold text-slate-600">تركيب الجدار:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="كربونات الكالسيوم"></div></div>
+                            <div><span class="font-semibold text-slate-600">الصبغ:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="فيكوبلن"></div></div>
+                            <div><span class="font-semibold text-slate-600">الفوائد:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="تكوين الشعب المرجانية"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- بطاقة 7: الطحالب الذهبية -->
+                <div class="bg-white p-4 rounded-xl shadow border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-emerald-700 text-center border-b pb-2 mb-3">7. الطحالب الذهبية</h3>
+                        <div class="space-y-2 text-sm">
+                            <div><span class="font-semibold text-slate-600">الصبغ الرئيسي:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="كاروتينويد إضافي"></div></div>
+                            <div><span class="font-semibold text-slate-600">عدد الخلايا:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="وحيدة الخلية أو مستعمرات"></div></div>
+                            <div><span class="font-semibold text-slate-600">التغذية:</span> <div class="dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="ذاتي التغذية"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- قسم أشكال فين المفرغة -->
+        <section class="mb-10">
+            <h2 class="text-xl font-bold text-emerald-800 mb-4 border-b-2 border-emerald-500 pb-2">
+                ثانياً: أشكال ڤين للمقارنة (الطلائعيات الشبيهة بالفطريات والفطريات الحقيقية)
+            </h2>
+            <p class="text-sm text-slate-600 mb-4">اسحب البيانات التالية وضعها في الخانات المناسبة لشكل ڤين:</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- شكل فين الأول -->
+                <div class="bg-white p-5 rounded-xl shadow border border-slate-200">
+                    <h3 class="font-bold text-emerald-700 mb-3 text-center">خصائص الطلائعيات الشبيهة بالفطريات</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <span class="text-xs font-semibold text-slate-500">الجدار الخلوي:</span>
+                            <div class="dropzone border-2 border-dashed border-slate-300 rounded p-2 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="السليلوز"></div>
+                        </div>
+                        <div>
+                            <span class="text-xs font-semibold text-slate-500">طريقة التكاثر المميزة:</span>
+                            <div class="dropzone border-2 border-dashed border-slate-300 rounded p-2 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="تتكاثر بأبواغ سوطية"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- شكل فين الثاني -->
+                <div class="bg-white p-5 rounded-xl shadow border border-slate-200">
+                    <h3 class="font-bold text-emerald-700 mb-3 text-center">خصائص الفطريات الحقيقية ومشتركاتها</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <span class="text-xs font-semibold text-slate-500">الجدار الخلوي:</span>
+                            <div class="dropzone border-2 border-dashed border-slate-300 rounded p-2 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="الكايتين"></div>
+                        </div>
+                        <div>
+                            <span class="text-xs font-semibold text-slate-500">التغذية والتشابه:</span>
+                            <div class="dropzone border-2 border-dashed border-slate-300 rounded p-2 mt-1 bg-slate-50 flex flex-wrap gap-1" data-answer="تتغذى على المواد العضوية المتحللة"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- بنك الكلمات الموحد بالأسفل -->
+        <section class="bg-white p-6 rounded-xl shadow border border-slate-300 sticky bottom-4 z-10">
+            <h3 class="font-bold text-slate-800 mb-3 flex items-center gap-2">
+                📦 بنك الكلمات والاختيارات (اسحب منها الأجوبة):
+            </h3>
+            <div id="word-bank" class="flex flex-wrap gap-2 min-h-[70px] p-3 bg-slate-50 border border-slate-200 rounded-lg">
+                <!-- العناصر ستُعبأ وتخلط تلقائياً بالبرمجة -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- سكربت تفاعلي للسحب والإدراج -->
+    <script>
+        const allAnswers = [
+            "كلوروفيل + كاروتين", "وحيدة الخلية", "السيلكا", "زيوت", 
+            "نصفين غير متساويين ينطبق أحدهما على الآخر ليكون صندوق صغير بغطاء", 
+            "تكون رسوبيات دياتومية – تلميع الفلزات – تبييض الأسنان - مادة حاكة",
+            "بعضها لها صبغة حمراء", "ذاتي وغير ذاتي التغذية", "السيليلوز", 
+            "لها سوطان أحدهما عمودي على الآخر تنتج حركة لولبية في الماء", 
+            "علاقات تكافلية مع المرجان والرخويات وقنديل البحر",
+            "الأسواط", "ذاتي وغير ذاتي", "خضراء", "تحاط بقشيرة", 
+            "لها صفات الحيوانات والنباتات معاً", "طرد الماء خارج الخلية", "تحس بالضوء وتتجه نحوه",
+            "فيوكوزانثين", "عديدة الخلايا", "ذاتي التغذية", "عشب البحر", 
+            "أجزاء مسطحة - سويقة - المثبت - المثانة الهوائية", 
+            "تبقي عشب البحر طافياً بالقرب من الماء", "يثبت عشب البحر",
+            "مستعمرة", "عديدة الخلايا", "وحيدة الخلية", "الفولفكس", 
+            "السبيروجيرا", "الدسميد", "الكلوروفيل", "كربوهيدرات",
+            "عديد الخلايا", "كربونات الكالسيوم", "فيكوبلن", "تكوين الشعب المرجانية",
+            "كاروتينويد إضافي", "وحيدة الخلية أو مستعمرات",
+            "السليلوز", "تتكاثر بأبواغ سوطية", "الكايتين", "تتغذى على المواد العضوية المتحللة"
+        ];
+
+        function initApp() {
+            const wordBank = document.getElementById('word-bank');
+            wordBank.innerHTML = '';
+            
+            document.querySelectorAll('.dropzone').forEach(zone => {
+                zone.innerHTML = '';
+                zone.className = "dropzone border-2 border-dashed border-slate-300 rounded p-1.5 mt-1 bg-slate-50 flex flex-wrap gap-1";
+            });
+
+            const shuffled = [...allAnswers].sort(() => Math.random() - 0.5);
+
+            shuffled.forEach((text, index) => {
+                const item = document.createElement('div');
+                item.className = "draggable bg-emerald-100 hover:bg-emerald-200 text-emerald-900 text-xs font-medium px-3 py-1.5 rounded shadow-sm border border-emerald-300 inline-block";
+                item.draggable = true;
+                item.innerText = text;
+                item.id = `drag-${index}`;
+                
+                item.addEventListener('dragstart', (e) => {
+                    e.dataTransfer.setData('text/plain', e.target.id);
+                });
+
+                wordBank.appendChild(item);
+            });
+        }
+
+        document.querySelectorAll('.dropzone').forEach(zone => {
+            zone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                zone.classList.add('drag-over');
+            });
+
+            zone.addEventListener('dragleave', () => {
+                zone.classList.remove('drag-over');
+            });
+
+            zone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                zone.classList.remove('drag-over');
+                const id = e.dataTransfer.getData('text/plain');
+                const element = document.getElementById(id);
+                if (element) {
+                    if (zone.children.length > 0) {
+                        document.getElementById('word-bank').appendChild(zone.children[0]);
+                    }
+                    zone.appendChild(element);
+                }
+            });
+        });
+
+        const wordBank = document.getElementById('word-bank');
+        wordBank.addEventListener('dragover', (e) => e.preventDefault());
+        wordBank.addEventListener('drop', (e) => {
+            e.preventDefault();
+            const id = e.dataTransfer.getData('text/plain');
+            const element = document.getElementById(id);
+            if (element) {
+                wordBank.appendChild(element);
+            }
+        });
+
+        function checkAnswers() {
+            let correctCount = 0;
+            let totalZones = document.querySelectorAll('.dropzone').length;
+
+            document.querySelectorAll('.dropzone').forEach(zone => {
+                const expected = zone.getAttribute('data-answer');
+                const child = zone.children[0];
+                
+                if (child && child.innerText.trim() === expected.trim()) {
+                    zone.className = "dropzone border-2 border-solid border-emerald-500 rounded p-1.5 mt-1 bg-emerald-50 flex flex-wrap gap-1";
+                    correctCount++;
+                } else {
+                    zone.className = "dropzone border-2 border-solid border-rose-500 rounded p-1.5 mt-1 bg-rose-50 flex flex-wrap gap-1";
+                }
+            });
+
+            alert(`📊 نتيجة التصحيح:\nأجبت بشكل صحيح على ${correctCount} من أصل ${totalZones} خانة.\nالخانات الصحيحة ظهرت بالإطار الأخضر، والخاطئة باللون الأحمر للتغذية الراجعة.`);
+        }
+
+        function resetApp() {
+            initApp();
+        }
+
+        window.onload = initApp;
+    </script>
+</body>
+</html>
